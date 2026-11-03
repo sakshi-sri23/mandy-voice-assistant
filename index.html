@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mandy</title>
+
+  <!-- Fonts: Caprasimo for the name, Hind for everything else (it handles Hindi too) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Caprasimo&family=Hind:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="page">
+
+    <!-- Left side: who she is, and the button you talk to -->
+    <header class="stage">
+     <div class="welcome-hand" aria-label="Waving hand" role="img">
+  👋
+</div>
+      <h1 id="app-name" class="wordmark">Mandy</h1>
+      <p id="status" class="status" aria-live="polite"></p>
+
+      <button id="orb" class="orb" data-state="idle" aria-label="Start or stop talking">
+        <span class="orb__bars" aria-hidden="true">
+          <i></i><i></i><i></i><i></i><i></i>
+        </span>
+      </button>
+
+      <!-- Hidden until music starts. YouTube puts its player inside #yt-player. -->
+      <div id="player" class="player" hidden>
+        <div id="yt-player"></div>
+      </div>
+    </header>
+
+    <!-- Right side: the conversation -->
+    <main class="talk">
+      <section id="chat" class="chat" aria-label="Conversation"></section>
+
+      <form id="text-form" class="composer">
+        <label for="text-input" class="sr-only">Type a message</label>
+        <input id="text-input" type="text" autocomplete="off">
+        <button id="send-btn" type="submit"></button>
+      </form>
+    </main>
+
+  </div>
+
+  <!-- Order matters: config.js first, then music.js, then script.js -->
+  <script src="config.js"></script>
+  <script src="music.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
